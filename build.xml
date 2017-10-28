@@ -6,6 +6,7 @@
 	<property name="build.dir" value="bin" />
 	<property name="classes.dir" value="${build.dir}/classes" />
 	<property name="jar.dir" value="${build.dir}/jar" />
+	<property name="apidocs.dir" value="${build.dir}/apidocs" />
 	<property name="main.class" value="local.snk.BigFractionDemo" />
 	<property name="commons.math3.dir" value="${lib.dir}/commons-math3" />
 
@@ -40,6 +41,12 @@
 		</java>
 	</target>
 
-	<target name="build" depends="clean,jar" />
+	<target name="apidocs">
+		<mkdir dir="${apidocs.dir}" />
+		<javadoc sourcepath="${src.dir}" destdir="${apidocs.dir}" author="true" version="true" classpathref="classpath" defaultexcludes="true" />
+		<jar destfile="${jar.dir}/${ant.project.name}-javadoc.jar" basedir="${apidocs.dir}" />
+	</target>
+
+	<target name="build" depends="clean,jar,apidocs" />
 
 </project>

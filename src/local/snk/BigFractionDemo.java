@@ -8,6 +8,7 @@ public class BigFractionDemo {
 	 * This is main method.
 	 * It uses BigFraction class from org.apache.commons.math3.fraction to show its use. 
 	 * @param args Input argument for the program.
+	 * @author Sandeep Kulkarni
 	 */
 	public static void main(String[] args) {
 		BigFraction one = new BigFraction(1524, 1000);
